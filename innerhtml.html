@@ -1,0 +1,22 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <title>innerHTML</title>
+  </head>
+  <body>
+    <ol id="lista">
+      <li>arroz</li>
+    </ol>
+
+    <script type="text/javascript">
+      function adicionarItem() {
+        var nome = prompt('Nome do produto');
+        var elemento = document.getElementById('lista');
+        elemento.innerHTML += '<li>' + nome + '</li>';
+      }
+    </script>
+    
+    <button onclick="adicionarItem()">Adicionar item</button>
+  </body>
+</html>

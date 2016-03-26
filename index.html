@@ -1,0 +1,2801 @@
+<!doctype html>
+<html lang="pt-br">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Desenvolvimento Web Básico</title>
+
+    <meta name="description" content="Desenvolvimento Web Básico">
+    <meta name="author" content="Milano Gadelha Carvalho">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/league.css" id="theme">
+
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <style type="text/css">
+      .reveal h1, .reveal h2, .reveal h3 {
+        text-transform: none;
+      }
+
+      .reveal .slides section .fragment.highlight-red.visible {
+        text-decoration: line-through;
+      }
+
+      .reveal table th {
+        text-align: center;
+      }
+
+      .destaque {
+        color: #fff;
+        background-color: #000;
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h2>Governo do Estado do Ceará</h2>
+          <h3>Secretaria da Fazenda</h3>
+          <h4>31 de agosto - 8 de setembro de 2015</h4>
+        </section>
+
+        <section>
+          <h1>
+            Desenvolvimento
+            <br>
+            Web Básico
+          </h1>
+
+          <h3>Instrutores: Milano e Moésio</h3>
+        </section>
+
+        <section>
+          <h3>Critérios de avaliação</h3>
+
+          <ul>
+            <li>Presença, conforme regra da CEDEP</li>
+            <li>Aplicação de conhecimentos: apresentação de trabalho prático</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>Front-end: o lado do cliente</h2>
+
+            <ul>
+              <li class="fragment">Navegadores (Firefox, Chrome, Internet Explorer)</li>
+              <li class="fragment">
+                O que acontece nos bastidores do navegador?
+
+                <ul>
+                  <li class="fragment">Entre outras coisas, o navegador processa ou renderiza: o HTML, o CSS e o JavaScript</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Guerra dos navegadores</h3>
+
+            <img class="stretch" data-src="img/meninos.jpg">
+          </section>
+
+          <section>
+            <h3>Tirinha</h3>
+
+            <img class="stretch" data-src="img/navegadores.jpg">
+          </section>
+        </section>
+
+        <section>
+          <h2>Back-end: o lado do servidor</h2>
+
+          <ul>
+            <li class="fragment">Servidores Web: JBoss EAP, Apache Tomcat, Microsoft IIS</li>
+            <li class="fragment">Banco de dados: Oracle, PostgreSQL</li>
+            <li class="fragment">Aplicações</li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h2>HTML</h2>
+
+            <ul>
+              <li class="fragment">
+                Abreviação para <em>HyperText Markup Language</em>
+
+                <ul>
+                  <li class="fragment">Linguagem de Marcação de HiperTexto</li>
+                </ul>
+              </li>
+              <li class="fragment">Principal tipo de documento da Web que é interpretado pelos navegadores</li>
+              <li class="fragment">É uma linguagem de marcação: <em>anotações</em> estruturam o documento</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Arquivo texto</h3>
+
+            <div style="float: left; width: 50%;">
+              <ul>
+                <li class="fragment">
+                  Um arquivo HTML é um arquivo de texto puro
+
+                  <ul>
+                    <li class="fragment">Pode ser editado no bloco de notas</li>
+                  </ul>
+                </li>
+                <li class="fragment">Extensão .html</li>
+              </ul>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment" style="margin: 0 auto 20px auto;"><code class="html" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Título&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Corpo
+  &lt;/body&gt;
+&lt;/html&gt;
+              </code></pre>
+            </div>
+
+            <p class="fragment"><a href="html1.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Destrinchando o exemplo</h3>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment" style="margin: 0 auto 20px auto;"><code class="html" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Título&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Corpo
+  &lt;/body&gt;
+&lt;/html&gt;
+              </code></pre>
+            </div>
+            <div style="float: left; width: 50%;">
+              <div style="font-size: 75%;">
+                <ul>
+                  <li class="fragment">A declaração <span class="destaque">DOCTYPE</span> define o documento como sendo do tipo HTML 5</li>
+                  <li class="fragment">O texto entre <span class="destaque">&lt;html&gt;</span> e <span class="destaque">&lt;/html&gt;</span> descreve um documento HTML</li>
+                  <li class="fragment">O texto entre <span class="destaque">&lt;head&gt;</span> e <span class="destaque">&lt;/head&gt;</span> fornece informações sobre o documento</li>
+                  <li class="fragment">O texto entre <span class="destaque">&lt;title&gt;</span> e <span class="destaque">&lt;/title&gt;</span> provê um título para o documento</li>
+                  <li class="fragment">O texto entre <span class="destaque">&lt;body&gt;</span> e <span class="destaque">&lt;/body&gt;</span> descreve o conteúdo vísivel da página</li>
+                </ul>
+              </div>
+            </div>
+          </section>
+
+          <section>
+            <h3>Tatuagem &lt;/head&gt; &lt;body&gt;</h3>
+
+            <img class="stretch" data-src="img/tatuagem.jpg">
+          </section>
+
+          <section>
+              <h3>Espaços em branco</h3>
+
+              <ul>
+                <li class="fragment">Sequências de caracteres de espaços e/ou quebras de linhas não modificam a apresentação do documento</li>
+                <li class="fragment">
+                  Identação para organização do código
+
+                  <ul>
+                    <li class="fragment">Espaços em branco x tabs: é boa prática manter a consistência</li>
+                  </ul>
+                </li>
+              </ul>
+
+              <p class="fragment"><a href="espaços_em_branco.html" target="_blank">Exemplo</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tags</h2>
+
+            <ul>
+              <li class="fragment">O navegador enxerga as tags como sinalizadores que indicam o modo como deve ser exibido o conteúdo por elas delimitado</li>
+              <li class="fragment">Os nomes das tags possuem em seu entorno os sinais  de menor (<span class="destaque">&lt;</span>) e maior (<span class="destaque">&gt;</span>) e a tag de fechamento (que indica o fim do conteúdo) tem o nome antecedido por uma barra (<span class="destaque">/</span>)</li>
+              <li class="fragment">É recomendável o uso de letras minúsculas para os nomes das tags</li>
+            </ul>
+
+            <pre class="fragment"><code class="html">&lt;tag&gt; ... conteúdo da tag ... &lt;/tag&gt;</code></pre>
+          </section>
+
+          <section>
+            <h3>Tags x elementos</h3>
+
+            <p class="fragment">As tags marcam o início e o fim de um elemento. Portanto, um elemento é tudo o que é compreendido pela tag de início e de fim, e pode, inclusive, conter outros elementos.</p>
+            <p class="fragment">Por exemplo, o elemento <span class="destaque">body</span> é tudo aquilo que está entre as tags <span class="destaque">&lt;body&gt;</span> e <span class="destaque">&lt;/body&gt;</span>.</p>
+          </section>
+
+          <section>
+            <h3>Comentários</h3>
+
+            <ul>
+              <li class="fragment">Código não interpretado pelo navegador</li>
+              <li class="fragment">Iniciado por <span class="destaque">&lt;!--</span> e encerrado por <span class="destaque">--&gt;</span></li>
+              <li class="fragment">Utilizado para explicações diversas
+              <li class="fragment">Também pode ser útil para desativar uma porção do código HTML</li>
+            </ul>
+
+            <pre class="fragment"><code class="html" data-trim>
+  &lt;!-- Eu sou um comentário em HTML --&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Formatação básica</h3>
+
+            <pre class="fragment" style="width: auto;"><code class="html" data-trim>
+Este texto está em &lt;b&gt;negrito&lt;/b&gt;, &lt;i&gt;itálico&lt;/i&gt; e &lt;u&gt;sublinhado&lt;/u&gt;.
+            </code></pre>
+
+            <p class="fragment">Este texto está em <b>negrito</b>, <i>itálico</i> e <u>sublinhado</u>.</p>
+          </section>
+
+          <section>
+            <h3>Formatação semântica</h3>
+
+            <pre class="fragment" style="width: auto;"><code class="html" data-trim>
+Este texto está marcado como &lt;strong&gt;importante&lt;/strong&gt; e com &lt;em&gt;ênfase&lt;/em&gt;.
+            </code></pre>
+
+            <p class="fragment">Este texto está marcado como <strong>importante</strong> e com <em>ênfase</em>.</p>
+
+            <blockquote class="fragment">HTML semântico provê maior acessibilidade. Imagine um navegador para cegos, um texto marcado com ênfase (tag em) é mais significativo do que um texto marcado como itálico (tag i).</blockquote>
+          </section>
+
+          <section>
+            <h3>Parágrafos</h3>
+
+            <p class="fragment">A tag <span class="destaque">p</span> representa um parágrafo de texto.</p>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;p&gt;
+  Texto em um parágrafo.
+&lt;/p&gt;
+&lt;p&gt;
+  Outro texto em outro parágrafo.
+&lt;/p&gt;
+              </code></pre>
+            </div>
+            <div class="fragment" style="float: left; width: 50%;">
+              <p>Texto em um parágrafo.</p>
+              <p>Outro texto em outro parágrafo.</p>
+            </div>
+
+            <em class="fragment">Lembrar de fechar o parágrafo.</em>
+          </section>
+
+          <section>
+            <h3>Quebra de linha</h3>
+
+            <p class="fragment">A tag <span class="destaque">br</span> define uma quebra de linha.</p>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+Este texto contém
+&lt;br&gt;
+uma quebra de linha
+              </code></pre>
+            </div>
+            <div class="fragment" style="float: left; width: 50%;">
+              Este texto contém
+              <br>
+              uma quebra de linha
+            </div>
+          </section>
+
+          <section>
+            <h3>Tag pre</h3>
+
+            <p class="fragment">
+              A tag <span class="destaque">pre</span> é uma exceção à regra dos espaços em branco do HTML, ela é utilizada para representar um texto pré-formatado em que quebras de linha e espaços em branco são preservados.
+            </p>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;pre&gt;
+    Texto    de
+           exemplo
+
+  usando    a
+       tag     pre
+&lt;/pre&gt;
+              </code></pre>
+            </div>
+            <div style="float: left; width: 50%;">
+              <pre class="fragment">
+
+    Texto    de
+           exemplo
+
+  usando    a
+       tag     pre
+              </code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Atributos</h3>
+
+            <ul>
+              <li class="fragment">A tag de início pode conter informações adicionais denominadas de atributos</li>
+              <li class="fragment">
+                Atributos normalmente (diferente do HTML, no XHTML é obrigatório) consistem de um par: nome e valor
+              </li>
+            </ul>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;tag atributo1="valor1" atributo2="valor2"&gt;...&lt;/tag&gt;
+            </code></pre>
+
+            <ul>
+              <li class="fragment">As aspas no valor nem sempre são essenciais, mas é uma boa prática usá-las</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Cabeçalhos</h3>
+
+            <ul>
+              <li class="fragment">Tags de cabeçalhos descrevem brevemente o tópico da sessão que ela introduz</li>
+              <li class="fragment">Existem 6 níveis de cabeçalhos, do <span class="destaque">h1</span> (maior importância) ao <span class="destaque">h6</span> (menor importância)</li>
+            </ul>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;h1&gt;Cabeçalho 1&lt;/h1&gt;
+&lt;h2&gt;Cabeçalho 2&lt;/h2&gt;
+&lt;h3&gt;Cabeçalho 3&lt;/h3&gt;
+&lt;h4&gt;Cabeçalho 4&lt;/h4&gt;
+&lt;h5&gt;Cabeçalho 5&lt;/h5&gt;
+&lt;h6&gt;Cabeçalho 6&lt;/h6&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="cabeçalhos.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Listas não ordenadas</h3>
+
+            <p class="fragment">Listas não ordendadas são definidas com a tag <span class="destaque">ul</span> e cada item é definido com a tag <span class="destaque">li</span>.</p>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;ul&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ul&gt;
+              </code></pre>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <ul class="fragment">
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>Listas ordenadas</h3>
+
+            <p class="fragment">Lista ordenadas são definidas com a tag <span class="destaque">ol</span> e cada item, assim como nas listas não ordenadas, é definido com a tag <span class="destaque">li</span>.
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;ol&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+  &lt;li&gt;Item&lt;/li&gt;
+&lt;/ol&gt;
+              </code></pre>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <ol class="fragment">
+                <li>Item</li>
+                <li>Item</li>
+                <li>Item</li>
+              </ol>
+            </div>
+          </section>
+
+          <section>
+            <h3>Listas podem ser aninhadas</h3>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;ul&gt;
+  &lt;li&gt;Item 1&lt;/li&gt;
+  &lt;li&gt;
+    Item 2
+
+    &lt;ul&gt;
+      &lt;li&gt;Item filho 2.1&lt;/li&gt;
+      &lt;li&gt;Item filho 2.2&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Item 3&lt;/li&gt;
+&lt;/ul&gt;
+              </code></pre>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <ul class="fragment">
+                <li>Item 1</li>
+                <li>
+                  Item 2
+
+                  <ul>
+                    <li>Item filho 2.1</li>
+                    <li>Item filho 2.2</li>
+                  </ul>
+                </li>
+                <li>Item 3</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Tabelas</h2>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;Item&lt;/th&gt;
+      &lt;th&gt;Valor&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Ma&ccedil;&atilde;&lt;/td&gt;
+      &lt;td&gt;R$ 5,00 / kg&lt;/td&gt;
+    &lt;/tr&gt;
+    &lt;tr&gt;
+      &lt;td&gt;Laranja&lt;/td&gt;
+      &lt;td&gt;R$ 2,00 / kg&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+              </code></pre>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <table class="fragment">
+                <thead>
+                  <tr>
+                    <th>Item</th>
+                    <th>Valor</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Maçã</td>
+                    <td>R$ 5,00 / kg</td>
+                  </tr>
+                  <tr>
+                    <td>Laranja</td>
+                    <td>R$ 2,00 / kg</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <h3>Tabela, linhas e células</h3>
+
+            <p class="fragment">Tabelas são definidas com a tag <span class="destaque">table</span>, que são divididas em linhas com a tag <span class="destaque">tr</span> e estas são dividas com a tag <span class="destaque">td</span> (ou <span class="destaque">th</span>).</p>
+
+            <ul>
+              <li class="fragment">
+                Célula de cabeçalho: criada com a tag <span class="destaque">th</span>
+
+                <ul>
+                  <li class="fragment">Normalmente o conteúdo está em negrito e centralizado</li>
+                </ul>
+              </li>
+              <li class="fragment">
+                Célula de dados: criada com a tag <span class="destaque">td</span>
+
+                <ul>
+                  <li class="fragment">Normalmente o conteúdo não apresenta destaques e está alinhado à esquerda</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Grupos de linhas</h3>
+
+            <p class="fragment">Os grupos de linhas servem para agrupar porções da tabela que tenham a mesma finalidade.</p>
+
+            <p class="fragment">Por exemplo, a divisão entre <span class="destaque">thead</span>, <span class="destaque">tbody</span> e <span class="destaque">tfoot</span> permite que, em tabelas longas, cabeçalho e rodapé sejam repetidos em cada página impressa.</p>
+
+            <p class="fragment">Essas tags são opcionais, mas tornam o documento HTML mais inteligente.</p>
+
+            <p class="fragment"><a href="municipios.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Juntando células</h3>
+
+            <p class="fragment">Os seguintes atributos são definidos em uma célula (seja ela criada com <span class="destaque">td</span> ou <span class="destaque">th</span>):</p>
+
+            <ul>
+              <li class="fragment"><span class="destaque">colspan</span>: informa por quantas <strong>colunas</strong> uma célula se estenderá</li>
+              <li class="fragment"><span class="destaque">rowspan</span>: informa por quantas <strong>linhas</strong> uma célula se estenderá</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Exercícios</h3>
+
+            <p class="fragment">Vamos construir as seguintes tabelas:</p>
+
+            <div class="fragment" style="float: left; width: 50%;">
+              <table style="border: 1px solid;">
+                <tr>
+                  <td colspan="2">Célula 1</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid;">Célula 2</td>
+                  <td>Célula 3</td>
+                </tr>
+                <tr>
+                  <td>Célula 4</td>
+                  <td style="border: 1px solid;">Célula 5</td>
+                </tr>
+              </table>
+            </div>
+
+            <div class="fragment" style="float: left; width: 50%;">
+              <table style="border: 1px solid;">
+                <tr>
+                  <td rowspan="3" style="border: 1px solid;">Célula 1</td>
+                  <td>Célula 2</td>
+                </tr>
+                <tr>
+                  <td>Célula 3</td>
+                </tr>
+                <tr>
+                  <td>Célula 4</td>
+                </tr>
+              </table>
+            </div>
+          </section>
+
+          <section>
+            <h3>Tabela 1</h3>
+
+            <div class="fragment" style="float: left; width: 50%;">
+              <table style="border: 1px solid;">
+                <tr>
+                  <td colspan="2">Célula 1</td>
+                </tr>
+                <tr>
+                  <td style="border: 1px solid;">Célula 2</td>
+                  <td>Célula 3</td>
+                </tr>
+                <tr>
+                  <td>Célula 4</td>
+                  <td style="border: 1px solid;">Célula 5</td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment" style="margin: 0;"><code class="html" data-trim>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td colspan="2"&gt;Célula 1&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Célula 2&lt;/td&gt;
+    &lt;td&gt;Célula 3&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Célula 4&lt;/td&gt;
+    &lt;td&gt;Célula 5&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+              </code></pre>
+            </div>
+          </section>
+
+          <section>
+            <h3>Tabela 2</h3>
+
+            <div class="fragment" style="float: left; width: 50%;">
+              <table style="border: 1px solid;">
+                <tr>
+                  <td rowspan="3" style="border: 1px solid;">Célula 1</td>
+                  <td>Célula 2</td>
+                </tr>
+                <tr>
+                  <td>Célula 3</td>
+                </tr>
+                <tr>
+                  <td>Célula 4</td>
+                </tr>
+              </table>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment" style="margin: 0;"><code class="html" data-trim>
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td rowspan="3"&gt;Célula 1&lt;/td&gt;
+    &lt;td&gt;Célula 2&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Célula 3&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Célula 4&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+              </code></pre>
+            </div>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Hyperlinks</h2>
+
+            <p class="fragment">A tag <span class="destaque">a</span> define um link para outra URL, o atributo <span class="destaque">href</span> especifica a URL para o link.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+  &lt;a href="http://www.google.com"&gt;Link para o Google&lt;/a&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="http://www.google.com" target="_blank">Link para o Google</a></p>
+          </section>
+
+          <section>
+            <h3>Links para outros protocolos</h3>
+
+            <p class="fragment">As URLs não são restritas a documentos Web (http). Qualquer protocolo suportado pelo navegador pode ser usado (ex.: file, ftp, mailto).</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+  &lt;a href="mailto:fulano@sefaz.ce.gov.br"&gt;Escrever email para Fulano&lt;/a&gt;
+            </code></pre>
+
+            <a class="fragment" href="mailto:fulano@sefaz.ce.gov.br">Escrever email para Fulano</a>
+          </section>
+      
+          <section>
+            <h3>URL</h3>
+
+            <ul>
+              <li>
+                Abreviação para <em>Uniform Resource Locator</em>
+
+                <ul>
+                  <li>Localizador Padrão de Recursos</li>
+                </ul>
+              </li>
+              <li>Define as regras de como se referir aos documentos</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Partes de uma URL</h3>
+
+            <span class="fragment" style="color: #fff; background-color: #000"><span style="color:#f00;">protocolo</span>://<span style="color:#00f;">servidor</span>:<span style="color:#DF01D7;">porta</span><span style="color:#ffff00">/c/a/m/i/n/h/o</span><span style="color:#FF8000;">?query_string</span><span style="color:#088A85;">#fragmento</span></span>
+
+            <ul>
+              <li class="fragment"><span style="color: #f00;background-color: #000">Protocolo</span>: http, https, ftp, ...</li>
+              <li class="fragment"><span style="color: #00f;background-color: #000">Servidor</span>: domínio/nome ou endereço IP</li>
+              <li class="fragment">
+                <span style="color: #DF01D7;background-color: #000">Porta</span> em que o processo no servidor está executando
+
+                <ul>
+                  <li class="fragment">Se omitida, a porta padrão é usada (http: 80, https: 443)</li>
+                </ul>
+              </li>
+              <li class="fragment"><span style="color:#ffff00;background-color: #000">Caminho</span> de acesso ao recurso: permite ao servidor conhecer o lugar onde o recurso está situado</li>
+              <li class="fragment"><em style="color:#FF8000;background-color: #000">Query string</em>: presença indicada pela <span class="destaque">?</span> após o caminho</li>
+              <li class="fragment">
+                <span style="color:#088A85;;background-color: #000">Fragmento</span>: presença indicada por <span class="destaque">#</span></span> (sempre fica por último na URL)
+
+                <ul>
+                  <li class="fragment">Não é enviado ao servidor</li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>URLs relativas e absolutas</h3>
+
+            <ul class="fragment">
+              <li>URLs relativas: se baseiam no diretório atual, podem apontar para diretórios ancestrais ("../../").</li>
+              <li>URLs absolutas</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Atributo target da tag a</h3>
+
+            <p class="fragment">A página de um link normalmente é aberta na janela corrente do navegador. Para abrir em outra janela devemos utilizar o atributo <span class="destaque">target</span>. Quando este atributo é omitido seu valor padrão é <span class="destaque">_self</span>, o valor <span class="destaque">_blank</span> determina a abertura do link em outra janela/aba.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+  &lt;a href="http://www.google.com" target="_blank"&gt;Link para o Google&lt;/a&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="http://www.google.com" target="_blank">Link para o Google</a></p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h2>Formulários HTML</h2>
+
+            <ul>
+              <li class="fragment">Formulários HTML permitem o envio de dados do navegador para o servidor Web</li>
+              <li class="fragment">Um formulário HTML é feito de um ou mais <em>campos de entrada</em>. Tais campos podem ser de texto (linha única ou de várias linhas), caixas de seleção, botões, <em>checkboxes</em> ou <em>radio buttons</em></li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Forms</h3>
+
+            <p>Para definirmos um formulário HTML utilizamos a tag <span class="destaque">form</span>.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;form&gt;&lt;/form&gt;
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Inputs</h3>
+
+            <p class="fragment">Tag para entrada de dados.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input&gt;
+            </code></pre>
+
+            <input class="fragment">
+          </section>
+
+          <section>
+            <h3>Atributo type do elemento input</h3>
+
+            <p class="fragment">O atributo <span class="destaque">type</span> especifica o tipo do elemento <span class="destaque">input</span> a ser mostrado. O tipo padrão é <span class="destaque">text</span>.</p>
+
+            <blockquote class="fragment">Apesar de não ser um atributo obrigatório do elemento input, é boa prática que sempre seja especificado.</blockquote>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="text"&gt;
+            </code></pre>
+
+            <input class="fragment" type="text">
+          </section>
+
+          <section>
+            <h3>Atributo name</h3>
+
+            <p class="fragment">Todas as tags de entrada de dados precisam de um nome ou não serão enviadas ao servidor. Por isso adicionamos o atributo <span class="destaque">name</span> à tag de abertura.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="text" name="q"&gt;
+            </code></pre>
+
+            <input class="fragment" type="text" name="q">
+          </section>
+
+          <section>
+            <h3>Questão</h3>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="pt"&gt;
+  &lt;body&gt;
+    &lt;form&gt;
+      &lt;input name="q"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p class="fragment">Preenchendo algum texto no <span class="destaque">input</span> e pressionando ENTER. O que acontece?</p>
+
+            <ul class="fragment">
+              <li class="fragment highlight-red">Nada</li>
+              <li class="fragment highlight-red">Uma mensagem de erro aparece</li>
+              <!--<li class="fragment highlight-red">O texto desaparece</li>-->
+              <li class="fragment highlight-green">A URL muda com o texto</li>
+            </ul>
+
+            <p class="fragment"><a href="form1.html" target="_blank">Ao teclar ENTER o formulário é submetido e a URL muda.</a></p>
+          </section>
+
+          <section>
+            <h3>Query string</h3>
+
+            <ul>
+              <li class="fragment">A <em>query string</em> é composta por uma série de pares campo-valor</li>
+              <li class="fragment">Dentro de cada par o campo e o valor são separados pelo sinal de igualdade, <span class="destaque">=</span></li>
+              <li class="fragment">Um par é separado do outro por um e comercial, <span class="destaque">&</span></li>
+            </ul>
+
+            <pre class="fragment"><code class="html" data-trim>
+nome1=valor1&amp;nome2=valor2&amp;nome3=valor3
+            </code></pre>
+          </section>
+
+          <section>
+            <h3>Botão de envio</h3>
+
+            <p class="fragment">Enviar o formulário via botão (sem precisar teclar ENTER) pode ser feito com um <span class="destaque">input</span> e o atributo <span class="destaque">type</span> com o valor <span class="destaque">submit</span>.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="pt"&gt;
+  &lt;body&gt;
+    &lt;form&gt;
+      &lt;input name="q"&gt;
+      &lt;input type="submit"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="form2.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Atributo value do elemento input</h3>
+
+            <p class="fragment">O atributo <span class="destaque">value</span> define o valor inicial de um campo. No caso de um input do tipo <span class="destaque">submit</span> o atributo value define o rótulo do botão.</p>
+
+            <div class="fragment" style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;input type="text" value="1000"&gt;
+&lt;input type="submit" value="Ok"&gt;
+              </code></pre>
+            </div>
+
+            <div class="fragment" style="float: left; width: 50%;">
+              <input type="text" value="1000">
+              <input type="submit" value="Ok">
+            </div>
+          </section>
+
+          <section>
+            <h3>Atributo disabled</h3>
+
+            <p class="fragment">O atributo disabled define que o campo está desabilitado, o campo não é submetido.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="text" value="1000" disabled="disabled"&gt;
+            </code></pre>
+
+            <input class="fragment" type="text" value="1000" disabled="disabled">
+          </section>
+
+          <section>
+            <h3>Atributo action do form</h3>
+
+            <p class="fragment">Por padrão, um formulário HTML envia os dados para si mesmo. Para enviar os dados para outro lugar utilizamos o atributo <span class="destaque">action</span>. O valor do atributo action será a URL para onde queremos enviar os dados.</p>
+          </section>
+
+          <section>
+            <h3>Exemplo</h3>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="pt"&gt;
+  &lt;body&gt;
+    &lt;form action="http://www.google.com/search"&gt;
+      &lt;input name="q"&gt;
+      &lt;input type="submit"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p class="fragment">O que acontece ao enviar o formulário?</p>
+
+            <p class="fragment"><a href="form3.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Atributo method do form</h3>
+
+            <p class="fragment">Este atributo determina a forma como os dados são enviados.</p>
+
+            <blockquote class="fragment">Não confundir com os métodos das linguagens de programação orientadas a objeto</blockquote>
+
+            <ul>
+              <li class="fragment">
+                <span class="destaque">GET</span>: quando um formulário é enviado desta forma os dados são transmitidos ao servidor através da própria URL
+
+                <ul>
+                  <li>É a forma de envio padrão se o atributo <em>method</em> for omitido da tag form</li>
+                </ul>
+              </li>
+              <li class="fragment"><span class="destaque">POST</span>: neste caso os dados são transmitidos no corpo da requisição HTTP</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Exemplo POST</h3>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="pt"&gt;
+  &lt;body&gt;
+    &lt;form action="http://www.google.com/search" method="post"&gt;
+      &lt;input name="q"&gt;
+      &lt;input type="submit"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="form4.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>GET x POST</h3>
+
+            <div style="float: left; width: 50%;">
+              <h3 class="fragment" data-fragment-index="1">GET</h3>
+
+              <ul>
+                <li class="fragment" data-fragment-index="2">Adequado para consultas</li>
+                <li class="fragment" data-fragment-index="4">A URL pode ser "favoritada"</li>
+                <li class="fragment" data-fragment-index="6">Quantidades de dados limitada</li>
+                <li class="fragment" data-fragment-index="8">Dados menos seguros, pois estão expostos na URL</li>
+              </ul>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <h3 class="fragment" data-fragment-index="1">POST</h3>
+
+              <ul>
+                <li class="fragment" data-fragment-index="3">Adequado para escritas</li>
+                <li class="fragment" data-fragment-index="5">Não pode ser "favoritado"</li>
+                <li class="fragment" data-fragment-index="7">Permite grandes quantidades de dados</li>
+                <li class="fragment" data-fragment-index="9">Dados mais seguros, pois estão "escondidos" no corpo da requisição HTTP</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>Questão</h3>
+
+            <p class="fragment">O que é apropriado para requisições GET?</p>
+
+            <ul class="fragment">
+              <li class="fragment highlight-green">Obter um documento</li>
+              <li class="fragment highlight-red">Atualizar dados</li>
+              <li class="fragment highlight-green">Requisições que podem ser <em>cacheadas</em></li>
+              <li class="fragment highlight-red">Enviar muitos dados ao servidor</li>
+            </ul>
+          </section>
+
+          <!--section>
+            <h3>Outros métodos</h3>
+
+            <ul>
+              <li class="fragment">
+                Além de GET e POST o protocolo HTTP possui os seguintes métodos:
+
+                <ul class="fragment">
+                  <li>HEAD</li>
+                  <li>PUT</li>
+                  <li>DELETE</li>
+                  <li>TRACE</li>
+                  <li>OPTIONS</li>
+                  <li>CONNECT</li>
+                  <li>PATCH</li>
+                </ul>
+              </li>
+            </ul>
+          </section-->
+
+          <section>
+            <h3>Atributo id</h3>
+
+            <p class="fragment">O atributo <span class="destaque">id</span> é um atributo global, pois pode ser utilizado em qualquer elemento HTML. É usado para definir um identificador único ao elemento em todo o documento que, assim, pode ser referenciado facilmente.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="text" name="q" id="q"&gt;
+            </code></pre>
+
+            <blockquote class="fragment">O atributo name não é único, pois vários elementos podem ter o mesmo nome, e nem é global, pois somente alguns elementos possuem este atributo.</blockquote>
+          </section>
+
+          <section>
+            <h3>Rótulos</h3>
+
+            <ul>
+              <li class="fragment">A tag <span class="destaque">label</span> define um rótulo para um elemento de formulário</li>
+              <li class="fragment">
+                Provê melhor usabilidade, pois, ao clicar no rótulo, o elemento de formulário associado é selecionado
+
+                <ul>
+                  <li>O atributo <span class="destaque">for</span> contém o id do elemento alvo</li>
+                </ul>
+              </li>
+            </ul>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="pt"&gt;
+  &lt;body&gt;
+    &lt;form action="http://www.google.com/search"&gt;
+      &lt;label for="q"&gt;Buscar por&lt;/label&gt;
+      &lt;input type="text" name="q" id="q"&gt;
+      &lt;input type="submit"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="form5.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Rótulos (sem atributo for)</h3>
+
+            <p class="fragment">Elemento alvo como filho do rótulo.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;!doctype html&gt;
+&lt;html lang="pt"&gt;
+  &lt;body&gt;
+    &lt;form action="http://www.google.com/search"&gt;
+      &lt;label&gt;
+        Buscar por
+        &lt;input name="q"&gt;
+      &lt;/label&gt;
+      &lt;input type="submit"&gt;
+    &lt;/form&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+            </code></pre>
+
+            <p class="fragment"><a href="form6.html" target="_blank">Exemplo</a></p>
+          </section>
+
+          <section>
+            <h3>Caixa de verificação</h3>
+
+            <p class="fragment">As caixas de verificação, mais conhecidas como <em>checkboxes</em>, permitem ao usuário marcar uma opção do tipo sim/não. Um <em>checkbox</em> é definido utilizando a tag <span class="destaque">input</span> com o atributo <span class="destaque">type</span> com o valor <span class="destaque">checkbox</span>.</p>
+
+            <p class="fragment">Utilize o atributo <span class="destaque">checked</span> para indicar que o item está marcado por padrão.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="checkbox"&gt;
+            </code></pre>
+
+            <span class="fragment">
+              <input type="checkbox">
+            </span>
+          </section>
+
+          <section>
+            <h3>Radio buttons</h3>
+
+            <p class="fragment"><em>Radio buttons</em> deixam o usuário escolher uma única opção dentre um conjunto de opções agrupadas pelo nome (atributo name). Um <em>radio button</em> é definido utilizando a tag <span class="destaque">input</span> com o atributo <span class="destaque">type</span> com o valor <span class="destaque">radio</span>.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="radio" name="radio" value="1"&gt;
+&lt;input type="radio" name="radio" value="2"&gt;
+&lt;input type="radio" name="radio" value="3"&gt;
+            </code></pre>
+
+            <span class="fragment">
+<input type="radio" name="radio" value="1">
+<input type="radio" name="radio" value="2">
+<input type="radio" name="radio" value="3">
+            </span>
+
+          </section>
+
+          <section>
+            <h3>Menu de opções (select)</h3>
+
+            <div style="float: left; width: 50%;">
+              <pre class="fragment"><code class="html" data-trim>
+&lt;select&gt;
+  &lt;option value="1"&gt;Op&ccedil;&atilde;o 1&lt;/option&gt;
+  &lt;option value="2"&gt;Op&ccedil;&atilde;o 2&lt;/option&gt;
+  &lt;option value="3"&gt;Op&ccedil;&atilde;o 3&lt;/option&gt;
+&lt;/select&gt;
+              </code></pre>
+
+              <select class="fragment">
+                <option>Opção 1</option>
+                <option>Opção 2</option>
+                <option>Opção 3</option>
+              </select>
+            </div>
+            
+            <div style="float: left; width: 50%;">
+              <ul>
+                <li class="fragment">A tag <span class="destaque">select</span> é usada para criar um menu de opções</li>
+                <li class="fragment">A tag <span class="destaque">option</span> dentro do select é usada para definir uma opção na lista</li>
+                <li class="fragment">O atributo <span class="destaque">multiple</span> do elemento select permite a seleção de várias opções</li>
+                <li class="fragment">As opções podem ser pré-selecionadas utilizando o atributo <span class="destaque">selected</span> do elemento option</li>
+              </ul>
+            </div>
+          </section>
+
+          <section>
+            <h3>Área de texto (textarea)</h3>
+
+            <p class="fragment">Um <span class="destaque">textarea</span> define uma área de texto. Diferentemente do input do tipo text, um textarea pode conter várias linhas.</p>
+            <p class="fragment">O atributo <span class="destaque">rows</span> define o número de linhas e o atributo <span class="destaque">cols</span> define o número de colunas.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;textarea rows="3" cols="40"&gt;Área de texto&lt;/textarea&gt;
+            </code></pre>
+
+            <textarea class="fragment" rows="3" cols="40">Área de texto</textarea>
+          </section>
+
+          <section>
+            <h3>Campos ocultos</h3>
+
+            <p class="fragment">Um campo oculto é definido utilizando a tag <span class="destaque">input</span> com o atributo <span class="destaque">type</span> com o valor <span class="destaque">hidden</span>. É usado quando a informação é importante para o programa que irá processar os dados, mas não precisa ser exibido ao usuário.</p>
+
+            <pre class="fragment"><code class="html" data-trim>
+&lt;input type="hidden" name="comando" value="exclusao"&gt;
+            </code></pre>
+
+            <blockquote class="fragment">Como é de se esperar nao podemos visualizar este campo.</blockquote>
+          </section>
+
+          <section>
+            <h3>Tipos de input</h3>
+
+            <ul>
+              <li>button</li>
+              <li>checkbox</li>
+              <li>file</li>
+              <li>hidden</li>
+              <li>image</li>
+              <li>password</li>
+              <li>radio</li>
+              <li>reset</li>
+              <li>submit</li>
+              <li>text</li>
+            </ul>
+          </section>
+
+          <section>
+            <h3>Novos tipos de input do HTML 5</h3>
+
+            <div style="float: left; width: 50%;">
+              <ul>
+                <li>search</li>
+                <li>email</li>
+                <li>url</li>
+                <li>tel</li>
+                <li>number</li>
+                <li>range</li>
+                <li>date</li>
+              </ul>
+            </div>
+
+            <div style="float: left; width: 50%;">
+              <ul>
+                <li>month</li>
+                <li>week</li>
+                <li>time</li>
+                <li>datetime-local</li>
+                <li>color</li>
+              </ul>
+            </div>
+          </section>
+        </section>
+      </section>
+
+      <section>
+        <h3>Tags div e span</h3>
+
+        <ul>
+          <li class="fragment">Receptáculos (<em>containers</em>) para conteúdo sem significado semântico</li>
+          <li class="fragment">Frequentemente usados com estilos CSS para definir um layout para a página</li>
+        </ul>
+
+        <p class="fragment"><a href="div-span.html" target="_blank">Exemplo</a></p>
+
+        <p class="fragment">Qual a diferença?</p>
+
+        <p class="fragment"><span class="destaque">div</span> é um elemento <em>block</em>, enquanto que <span class="destaque">span</span> é um elemento <em>inline</em>.</p>
+      </section>
+
+      <!--section>
+        <section>
+            <h2>HTML - recapitulando</h2>
+
+            <ul>
+              <li class="fragment">HTML é usado para dar estrutura aos websites</li>
+              <li class="fragment">Abrimos arquivos HTML usando um navegador, e o navegador renderiza (nos mostra) o arquivo</li>
+              <li class="fragment">Arquivos HTML tem uma cabeça (cabeçalho) <span class="destaque">&lt;head&gt;</span> e um corpo <span class="destaque">&lt;body&gt;</span></li>
+              <li class="fragment">No cabeçalho, temos as tags <span class="destaque">&lt;title&gt;</span>, e usamos essas tags para especificar o nome da página</li>
+              <li class="fragment">Formulários permitem o envio de dados ao servidor</li>
+            </ul>
+        </section>
+
+        <section>
+          <h3>Dica</h3>
+
+          <p class="fragment">
+            Os navegadores permitem visualizar o código HTML de qualquer página. No início pode parecer um pouco ilegível, mas se gastar algum tempo observando, logo se desenvolverá o entendimento da sintaxe
+          </p>
+        </section>
+      </section-->
+
+      <!--section>
+        <h2>CSS</h2>
+
+        <ul>
+          <li>Abreviação para <em>Cascading Style Sheets</em></li>
+          <li>Atualmente, as melhores práticas de desenvolvimento para a Web encorajam o uso das CSS, em vez do uso da HTML, para definir a apresentação</li>
+          <li>Pode estar embutido no elemento, no cabeçalho HTML ou em um arquivo separado</li>
+          <li>
+            Sintaxe
+
+            <ul>
+              <li>Propriedade (o que queremos mudar/definir)</li>
+              <li>Valor (o valor desejado)</li>
+            </ul>
+          </li>
+          <li>Classes</li>
+          <li>Seletores</li>
+          <li>Comentários</li>
+          <li>Pseudo classes</li>
+          <li>Unidades de medida</li>
+          <li>Cascata</li>
+          <li>Herança: propriedades herdáveis x não herdáveis</li>
+          <li>
+            Layout
+
+            <ul>
+              <li>Modelo caixa</li>
+              <li>Fluxo (propriedade display)</li>
+              <li>Posição</li>
+            </ul>
+        </ul>
+      </section-->
+
+      <section>
+        <section>
+          <h2>JavaScript</h2>
+
+          <p class="fragment">Antes de começarmos, é importante saber que:</p>
+
+          <ul>
+            <li class="fragment">JavaScript não é Java</li>
+            <li class="fragment">JavaScript não é uma versão light de Java</li>
+            <li class="fragment">JavaScript não foi baseada em Java</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>O que é JavaScript?</h3>
+
+          <p class="fragment">JavaScript é uma linguagem de programação que foi originalmente implementada como parte dos navegadores Web para que scripts pudessem ser executados do lado do cliente e interagissem com o usuário.
+        </section>
+
+        <section>
+          <h3>Ambiente de execução</h3>
+
+          <p class="fragment">Atualmente, os navegadores não são as únicas plataformas em que o JavaScript é utilizado. Alguns bancos de dados usam JavaScript como linguagem de configuração e de consulta. O projeto Node.js provê um ambiente de execução JavaScript no servidor. E, até mesmo o SITRAM (SEFAZ-CE), utiliza JavaScript (no servidor) para a definição de regras para o cálculo do ICMS.</p>
+        </section>
+
+        <section>
+          <h3>Olá, mundo!</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+alert("Olá, mundo!");
+console.log("Olá, mundo");
+          </code></pre>
+
+          <button class="fragment" onclick="alert('Olá, mundo!');">Exemplo</button>
+        </section>
+
+        <!--section>
+          <h3>Simples?</h3>
+
+          <blockquote class="fragment">
+            JavaScript é muitas vezes ridicularizada como um brinquedo simples, entretanto por baixo de sua simplicidade enganosa estão alguns recursos poderosos da linguagem.
+          </blockquote>
+        </section-->
+
+        <section>
+          <h3>Variáveis</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var i;
+var j = 0;
+k = 1;
+          </code></pre>
+
+          <ul>
+            <li class="fragment"><span class="destaque">var</span> declara uma variável, que opcionalmente pode ser inicializada</li>
+            <li class="fragment">
+              Uma variável declarada fora de qualquer função será global
+
+              <ul>
+                <li class="fragment">Variáveis globais são propriedades do objeto window (window.nome_da_variavel)</li>
+              </ul>
+            </li>
+            <li class="fragment">
+              <span class="fragment highlight-red">
+                Uma simples atribuição de valor também declara uma variável global
+              </span>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Tipos</h3>
+
+          <p class="fragment">JavaScript é uma liguagem fracamente tipada (ou dinâmica). Não é necessário declarar o tipo da variável. Os tipos disponíveis são: <span class="destaque">undefined</span>, <span class="destaque">string</span>, <span class="destaque">number</span>, <span class="destaque">boolean</span>, <span class="destaque">null</span> e <span class="destaque">object</span>. O operador <span class="destaque">typeof</span> verifica o valor e informa o nome do seu tipo.</p>
+
+          <div style="float: left; width: 50%;">
+            <pre class="fragment"><code class="javascript" data-trim>
+var a;
+typeof a; // "undefined"
+
+a = undefined;
+typeof a; // "undefined"
+
+a = "olá, mundo!";
+typeof a; // "string"
+
+a = 'olá, mundo!';
+typeof a; // "string"
+            </code></pre>
+          </div>
+
+          <div style="float: left; width: 50%;">
+            <pre class="fragment"><code class="javascript" data-trim>
+a = 42;
+typeof a; // "number"
+
+a = true;
+typeof a; // "boolean"
+
+a = null;
+typeof a; // "object" bug!
+
+a = { b: "c" };
+typeof a; // "object"
+            </code></pre>
+          </div>
+        </section>
+
+        <!--section>
+          <h3>Números especiais</h3>
+
+          <p class="fragment">Existem 3 tipos de valores especiais no JavaScript que são considerados números, mas não se comportam como números normais.</p>
+          <p class="fragment">Os dois primeiros são <span class="destaque">Infinity</span> and <span class="destaque">-Infinity</span> que representam o infinito numérico positivo e negativo.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+1/0 // Infinity
+-1/0 // -Infinity
+          </code></pre>
+
+          <p class="fragment">O terceiro é o <span class="destaque">NaN</span>, <em>not a number</em>, apesar de seu valor ser considerado um número.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+0/0 // NaN
+NaN == NaN // false => NaN não é igual a nada, nem a ele mesmo
+          </code></pre>
+        </section-->
+
+        <section>
+          <h3>Arrays</h3>
+
+          <p class="fragment">Um array é um objeto especializado para armazenar valores (de qualquer tipo). Acessamos os valores contidos em um array através de índices numéricos começados por 0 (zero).</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var produtos = ["arroz", "feijão", "macarrão"]; // array com 3 elementos
+
+console.log(produtos[0]); // arroz (1o elemento)
+console.log(produtos[1]); // feijão (2o elemento)
+console.log(produtos[2]); // macarrão (3o elemento)
+console.log(produtos.length); // 3 (quantidade de elementos)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Objetos</h3>
+
+          <p class="fragment">Um objeto é uma coleção de valores (de qualquer tipo) nomeados (pares nome-valor). Acessamos os valores contidos em um objeto através de índices nomeados.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var maca = {nome: 'maçã', preco: 4, unidade: 'kg'};
+var banana = {nome: 'banana', preco: 2, unidade: 'kg'};
+
+console.log(maca.nome, maca['nome']); // maçã maçã
+console.log(maca.preco, maca['preco']); // 4 4
+console.log(maca.unidade, maca['unidade']); // kg kg
+
+console.log(banana); // Object { nome: "banana", preco: 2, unidade: "kg" }
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Operadores aritméticos</h3>
+
+          <table>
+            <tr class="fragment">
+              <td>+</td>
+              <td>adição (pode ser unário)</td>
+            </tr>
+            <tr class="fragment">
+              <td>-</td>
+              <td>subtração (pode ser unário)</td>
+            </tr>
+            <tr class="fragment">
+              <td>*</td>
+              <td>multiplicação</td>
+            </tr>
+            <tr class="fragment">
+              <td>/</td>
+              <td>divisão</td>
+            </tr>
+            <tr class="fragment">
+              <td>%</td>
+              <td>módulo (resto)</td>
+            </tr>
+            <tr class="fragment">
+              <td>++</td>
+              <td>incremento</td>
+            </tr>
+            <tr class="fragment">
+              <td>--</td>
+              <td>decremento</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>Comparações</h3>
+
+          <p class="fragment">Resultado booleano: true ou false.</p>
+
+          <table>
+            <tr class="fragment">
+              <td>&gt;</td>
+              <td>maior que</td>
+            </tr>
+            <tr class="fragment">
+              <td>&lt;</td>
+              <td>menor que</td>
+            </tr>
+            <tr class="fragment">
+              <td>==</td>
+              <td>igualdade</td>
+            </tr>
+            <tr class="fragment">
+              <td>!=</td>
+              <td>desigualdade</td>
+            </tr>
+            <tr class="fragment">
+              <td>&gt;=</td>
+              <td>maior ou igual a</td>
+            </tr>
+            <tr class="fragment">
+              <td>&lt;=</td>
+              <td>menor ou igual a</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>Igualdade e desigualdade estrita</h3>
+
+          <p class="fragment">Ao utilizar os operadores de igualdade (<span class="destaque">==</span>) e desigualde (<span class="destaque">!=</span>) o JavaScript tenta fazer conversão dos tipos para se tornarem compatíveis.</p>
+
+          <table>
+            <tr class="fragment">
+              <td><span class="destaque">===</span></td>
+              <td>igualdade de valor e tipo (não há conversão)</td>
+            </tr>
+            <tr class="fragment">
+              <td><span class="destaque">!==</span></td>
+              <td>desigualdade de valor e tipo (não há conversão)</td>
+            </tr>
+          </table>
+
+          <div style="float: left; width: 50%;">
+            <pre class="fragment"><code class="javascript" data-trim>
+'' == '0'           // false
+0 == ''             // true
+0 == '0'            // true
+
+false == 'false'    // false
+false == '0'        // true
+            </code></pre>
+          </div>
+
+          <div style="float: left; width: 50%;">
+            <pre class="fragment"><code class="javascript" data-trim>
+false == undefined  // false
+false == null       // false
+null == undefined   // true
+
+' \t\r\n ' == 0     // true
+            </code></pre>
+          </div>
+        </section>
+
+        <section>
+          <h3>Exemplo de comparações</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var a = [1, 2, 3];
+var b = [1, 2, 3];
+
+var c = {x: 1, y: 2};
+var d = {x: 1, y: 2};
+
+var e = "texto";
+var f = "te" + "xto";
+
+a == b            // false
+a === b           // false
+
+c == d            // false
+c === d           // false
+
+e == f            // true
+e === f           // true
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Comparações lógicas</h3>
+
+          <table class="fragment">
+            <tr class="fragment">
+              <td>a &amp;&amp; b</td>
+              <td>E lógico</td>
+            </tr>
+            <tr class="fragment">
+              <td>a || b</td>
+              <td>OU lógico</td>
+            </tr>
+            <tr class="fragment">
+              <td>!a</td>
+              <td>NEGAÇÃO lógica</td>
+            </tr>
+            <tr class="fragment">
+              <td>a ? b : c</td>
+              <td>operador condicional (ternário)</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>Palavras reservadas</h3>
+
+          <blockquote class="fragment">break case catch class const continue debugger
+default delete do else enum export extends false
+finally for function if implements import in
+instanceof interface let new null package private
+protected public return static super switch this
+throw true try typeof var void while with yield</blockquote>
+        </section>
+
+        <section>
+          <h3>if - else if - else</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+if (condição_1) {
+  ...
+} else if (condição_2) {
+  ...
+} else if (condição_n) {
+  ...
+} else {
+  ...
+}
+          </code></pre>
+
+          <p class="fragment">Valores avaliados como falso: false, undefined, null, 0, NaN, "" (string vazia)</p>
+        </section>
+
+        <section>
+          <h3>switch - case - break</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+switch (expressão) {
+  case rótulo_1:
+    ...
+    [break;]
+  case rótulo_2:
+    ...
+    [break;]
+  case rótulo_n:
+    ...
+    [break;]
+  default:
+    ...
+    [break;]
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Laços</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+for (expressão_inicial; condição; expressão_de_incremento) {
+  ...
+}
+
+while (condição) {
+  ...
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Funções</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+function nome_da_funcao(parametro1, parametro2, ..., parametro_n) {
+  return /* resultado */;
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Funções</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+function quadrado(x) {
+  return x * x;
+}
+
+console.log(quadrado(2)); // 4
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Funções são objetos</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+function quadrado(x) {
+  return x * x;
+}
+
+quadrado.descricao = "Calcula o quadrado de um número";
+
+console.log(quadrado.descricao); // "Calcula o quadrado de um número"
+console.log(quadrado(3)); // 9
+          </code></pre>
+
+          <blockquote class="fragment">Apesar de ser possível não é um uso comum.</blockquote>
+        </section>
+
+        <section>
+          <h3>Funções são valores</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var quadrado = function(x) { // função anônima atribuída à variável quadrado
+  return x * x;
+};
+
+console.log(quadrado(4)); // 16
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Execução imediata</h3>
+
+          <p class="fragment">Funções podem ser declaradas e executadas imediatamente.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+(function() {
+  console.log('oi!');
+})();
+          </code></pre>
+        </section>
+
+        <!--section>
+          <h3>Funções de primeira classe</h3>
+
+          <ul>
+            <li class="fragment">Funções podem ser atribuídas a variáveis ou outras estruturas de dados</li>
+            <li class="fragment">Funções podem ser passadas como parâmetros para outras funções</li>
+            <li class="fragment">Funções podem ser o retorno de outras funções</li>
+            <li class="fragment">Os nomes das funções não possuem nenhum status especial, funções podem ser anônimas</li>
+            <li class="fragment">Fundamental para a programação funcional</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Funções aninhadas e closures</h3>
+
+          <p>Closures são funções que possuem funções filhas que tem acesso às variáveis da função pai.</p>
+
+          <p>Um dado pode ser "salvo" dentro de uma função que é apenas acessível à função de retorno, isto é, a função retornada mantém o seu ambiente de execução.</p>
+        </section>
+
+        <section>
+          <h3>Funções aninhadas</h3>
+          <img class="stretch" data-src="img/function-inside-function.jpg">
+        </section-->
+
+        <!--section>
+          <h3>Prototype</h3>
+        </section>
+
+        <section>
+          <h3>Array.prototype.map</h3>
+          <pre class="fragment"><code class="javascript" data-trim>
+var valores = [0, 32, 45, 50, 75, 80, 99, 120];
+
+var valores_dobrados = valores.map(function(e) {
+  return e * 2;
+});
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Array.prototype.filter</h3>
+          <pre class="fragment"><code class="javascript" data-trim>
+var valores = [0, 32, 45, 50, 75, 80, 99, 120];
+
+var valores_pares = valores.filter(function(e) {
+  return e % 2 == 0;
+});
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Array.prototype.reduce</h3>
+          <pre class="fragment"><code class="javascript" data-trim>
+var valores = [0, 32, 45, 50, 75, 80, 99, 120];
+
+var somatorio = valores.reduce(function(a, b) {
+  return a + b;
+}, 0);
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Identificador this</h3>
+        </section-->
+
+        <section>
+          <h3>Simulando um construtor</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+function Produto(nome, preco) {
+  this.nome = nome;
+  this.preco = preco;
+}
+
+var produto = new Produto('maçã', 5);
+console.log(produto.nome, produto.preco); // 'maçã', 5
+console.log(produto); // Produto {nome: "maçã", preco: 5}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HTML + JavaScript</h3>
+
+          <pre class="fragment"><code class="html" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;Título&lt;/title&gt;
+    &lt;script type="text/javascript"&gt;
+      /* código javascript */
+    &lt;/script&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Corpo
+  &lt;/body&gt;
+&lt;/html&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HTML + JavaScript externo</h3>
+
+          <pre class="fragment"><code class="html" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
+    &lt;title&gt;Título&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    Corpo
+  &lt;/body&gt;
+&lt;/html&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>DOM</h3>
+
+          <p class="fragment">Quando uma página HTML é carregada, o navegador cria uma representação da estrutura do documento como uma árvore de objetos. Com esta representação, o JavaScript tem o <strong>poder</strong> de modificar o documento. Quando a estrutura é modificada, a página na tela reflete as mudanças feitas.</p>
+
+          <p class="fragment">A API DOM (<em>Document Object Model</em>) padroniza como essa árvore de objetos pode ser acessada e manipulada.</p>
+        </section>
+
+        <section>
+          <h3>Variável document</h3>
+
+          <p class="fragment">A variável global <span class="destaque">document</span> (window.document) dá acesso a árvore de objetos DOM.</p>
+
+          <table class="fragment">
+            <caption>Alguns métodos de document:</caption>
+            <tr>
+              <th>Método</th>
+              <th>Descrição</th>
+            </tr>
+            <tr>
+              <td><span class="destaque">getElementById</span></td>
+              <td>Encontra um elemento pelo id</td>
+            </tr>
+            <tr>
+              <td><span class="destaque">getElementsByTagName</span></td>
+              <td>Encontra elementos pelo nome da tag</td>
+            </tr>
+            <tr>
+              <td><span class="destaque">getElementsByClassName</span></td>
+              <td>Encontra elementos pelo nome da classe</td>
+            </tr>
+          </table>
+        </section>
+
+        <section>
+          <h3>Vamos testar estes métodos no navegador?</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+document.getElementById('id');
+document.getElementsByTagName('tag');
+document.getElementsByClassName('classe');
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>E se pudéssemos usar seletores CSS?</h3>
+        </section>
+
+        <section>
+          <h3>jQuery</h3>
+
+          <p class="fragment">jQuery é uma biblioteca JavaScript que simplifica a interação com o HTML. É usada por cerca de 65% dos 10 milhões de sites mais visitados do mundo (2015).</p>
+        </section>
+
+        <section>
+          <h3>Por que jQuery?</h3>
+
+          <p class="fragment">A sintaxe do jQuery foi desenvolvida para tornar mais simples a "navegação" no documento HTML, selecionar elementos DOM, criar animações, manipular eventos e desenvolver aplicações AJAX. E tudo isso com grande compatibilidade entre os diferentes navegadores.</p>
+        </section>
+
+        <section>
+          <h3>Seletores jQuery</h3>
+
+          <p class="fragment">Os seletores no jQuery são baseados nos seletores CSS e são usados para encontrar (selecionar) elementos baseados em id, classes, atributos, valores de atributos, etc.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+document.getElementById('id'); // js puro
+$('#id'); // jquery
+
+document.getElementsByTagName('tag'); // js puro
+$('tag'); // jquery
+
+document.getElementsByClassName('classe'); // js puro
+$('.classe'); // jquery
+          </code></pre>
+
+          <a class="fragment" href="https://api.jquery.com/category/selectors/" target="_blank">https://api.jquery.com/category/selectors/</a>
+        </section>
+
+        <section>
+          <h3>jQuery é poderoso</h3>
+
+          <img class="stretch" data-src="img/foguete.gif">
+        </section>
+
+        <section>
+          <h3>Evento ready</h3>
+
+          <p class="fragment">Uma página não pode ser manipulada com segurança até que o documento esteja pronto. A função <span class="destaque">$(document).ready</span> espera até que o HTML da página carregue antes de executar a função recebida como parâmetro.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+
+// utilizando o evento ready:
+
+$(document).ready(function() {
+   // colocar o código de manipulação do HTML aqui
+   console.log("pronto!");
+}); // fim do ready
+
+// ou de forma mais concisa:
+
+$(function() {
+  // colocar o código de manipulação do HTML aqui
+  console.log("pronto!");
+}); // fim do ready (implícito)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Ações</h3>
+
+          <p class="fragment">A sintaxe do jQuery é orientada pela seleção de elementos HTML e a execução de ações nestes elementos.
+        </section>
+
+        <section>
+          <h3>Método .css</h3>
+
+          <p class="fragment">Obtém ou define um valor de propriedade de um estilo.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+// lendo uma propriedade
+var cor_de_fundo = $("p").css("background-color");
+
+// definindo uma propriedade
+$("p").css("background-color", "#f00");
+
+// definindo mais de uma propriedade ao mesmo tempo
+$("p").css({"color": "#000", "background-color": "#f00"});
+          </code></pre>
+
+          <p class="fragment">Outros métodos para trabalhar com estilos: <span class="destaque">.addClass</span>, <span class="destaque">.removeClass</span>, <span class="destaque">.toggleClass</span>.</p>
+        </section>
+
+        <section>
+          <h3>Métodos .hide e .show</h3>
+
+          <p class="fragment">O método .hide esconde os elementos selecionados, e o método .show mostra os elementos selecionados.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+$("p").hide(); // "slow", "fast"
+$("p").show();
+$("p").css("display", "none");
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Método .prop</h3>
+
+          <p class="fragment">Obtém ou define um valor de uma propriedade.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var marcado = $("#checkbox").prop("checked"); // lê
+$("#checkbox").prop("checked", true); // escreve (marca o checkbox)
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Método .val</h3>
+
+          <p class="fragment">Obtém ou define um valor em elementos de formulário.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+var texto = $("input:text").val(); // lê
+$("input:text").val("novo texto"); // escreve
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Principais eventos do jQuery</h3>
+
+        <blockquote class="fragment">blur, focus, focusin, focusout, load, resize, scroll, unload, click, dblclick, mousedown, mouseup, mousemove, mouseover, mouseout, mouseenter, mouseleave, change, select, submit, keydown, keypress, keyup, error</blockquote>
+
+          <a class="fragment" href="https://api.jquery.com/category/events/" target="_blank">https://api.jquery.com/category/events/</a>
+        </section>
+
+        <section>
+          <h3>Método .on</h3>
+
+          <p class="fragment">Este método anexa uma função manipuladora de eventos nos elementos selecionados.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+$("p").on("click", function() {
+  console.log("Você clicou em um parágrafo (.on)!");
+});
+
+// para cada tipo de evento existe um método direto
+$("p").click(function() {
+  console.log("Você clicou em um parágrafo! (.click)");
+});
+
+$("input:text").change(function() {
+  console.log("Você alterou o texto!");
+});
+
+$("input:text").trigger("change"); // dispara o evento programáticamente
+$("input:text").change(); // dispara o evento programáticamente
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Exercício com checkboxes</h3>
+
+          <blockquote class="fragment">Um sistema precisa que ao marcar o checkbox denominado "selecionar todos", todos os outros (qualquer quantidade) checkboxes da página sejam marcados. E, caso desmarcado, todos sejam desmarcados. Como você resolveria este problema com jQuery?</blockquote>
+        </section>
+
+        <section>
+          <h3>Método .html</h3>
+          
+          <p class="fragment">Este método obtém ou retorna o conteúdo (innerHTML) dos elementos selecionados.</p>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+$("button").click(function() {
+  $("p").html("Olá, <b>mundo</b>!");
+});
+          </code></pre>
+        </section>
+
+        <!--section>
+          <h3>document.querySelectorAll e document.querySelector</h3>
+        </section>
+
+        <section>
+          addEventListener
+        </section>
+
+        <section>
+          <h3>Propriedade innerHTML de um elemento</h3>
+
+          <p>A propriedade innerHTML de um elemento contém a representação em string de seu conteúdo. Além de lermos o valor dessa propriedade podemos também escrever e modificar a estrutura do documento.</p>
+        </section-->
+      </section>
+
+      <!--section>
+        <section>
+          <h2>HTTP</h2>
+
+          <ul>
+            <li>O protocolo que a Web utiliza</li>
+            <li>Request</li>
+            <li>Response</li>
+            <li>GET / POST</li>
+            <li><em>Cookies</em></li>
+            <li>Toda vez que o usuário carrega a página Web, o navegador envia o cookie de volta ao servidor para notificar sobre as atividades anteriores do usuário</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Códigos de estado HTTP</h3>
+
+          <ul>
+            <li>200</li>
+            <li>404</li>
+            <li>403</li>
+          </ul>
+        </section>
+      </section-->
+
+      <section>
+        <section>
+          <h2>Servlet</h2>
+
+          <ul>
+            <li class="fragment">
+              Servlet é a base da tecnologia Java para Web
+
+              <ul>
+                <li class="fragment">JSP (JavaServer Pages) e JSF (JavaServer Faces) foram construídos utilizando a API de Servlets</li>
+              </ul>
+            </li>
+            <li class="fragment">
+              Servlets necessitam de um servidor web Java (<em>container Web</em>) para serem executados (ex.: Apache Tomcat)
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Aplicação</h3>
+
+          <p class="fragment">Conjunto de classes Java, servlets, JSPs, HTMLs, imagens, javascripts, estilos CSS, etc, que são implantados (<em>deployed</em>) no servidor Web como um único pacote.</p>
+        </section>
+
+        <section>
+          <h3>WAR: Web application ARchive</h3>
+
+          <p class="fragment">Um arquivo WAR segue o formato JAR para empacotar uma aplicação web Java. Um arquivo JAR, por sua vez, é um arquivo compactado no formato ZIP.
+        </section>
+
+        <section>
+          <h3>Maven</h3>
+
+          <p class="fragment">O Maven é uma ferramenta de automação da construção de software. Basicamente, o Maven faz a compilação do código fonte, a gerencia das dependências da aplicação (bibliotecas jars) e dispara a execução de testes automatizados através da configuração realizada no arquivo <span class="destaque">pom.xml</span>.</p>
+        </section>
+
+        <section>
+          <h3>Estrutura de diretórios</h3>
+
+          <p class="fragment">O Maven cria um projeto esqueleto.</p>
+
+          <ul class="fragment">
+            <li>
+              <span class="destaque">src/main/java/</span>: código fonte Java
+            </li>
+            <li>
+              <span class="destaque">src/main/webapp/</span>: arquivos públicos, podem ser acessados diretamente (html, jsps, imagens, js, css)
+            </li>
+            <li>
+              <span class="destaque">src/main/webapp/WEB-INF/</span>: arquivos privados, acessíveis via Servlets (jsps, jars, configurações)
+            </li>
+            <li>
+              <span class="destaque">src/main/webapp/WEB-INF/web.xml</span>: <em>deployment descriptor</em>
+            </li>
+          </ul>
+
+          <a  class="fragment" href="http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html" target="_blank" style="word-wrap: break-word;">http://maven.apache.org/guides/introduction/introduction-to-the-standard-directory-layout.html</a>
+        </section>
+
+        <section>
+          <h3>Vamos configurar nosso ambiente de desenvolvimento</h3>
+
+          Abrir o Eclipse &#10140; menu File &#10140; New &#10140; Maven Project &#10140; botão Next &#10140; escolher <span class="destaque">maven-archetype-webapp</span> &#10140; botão Next &#10140; Group Id: <span class="destaque">br.gov.ce.sefaz.webbasico</span>, Artifact Id: <span class="destaque">miniblog</span> &#10140; Finish          
+        </section>
+
+        <section>
+          <h3>Editar pom.xml e incluir dependência</h3>
+
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;dependencies&gt;
+
+  ...
+
+  &lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;
+    &lt;version&gt;3.1.0&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
+
+  ...
+
+&lt;/dependencies&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Primeiro Servlet - OlaMundo.java</h3>
+
+          <pre class="fragment"><code class="java" data-trim>
+import java.io.*;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.*;
+
+@WebServlet("/ola-mundo")
+public class OlaMundo extends HttpServlet {
+  @Override
+  protected void doGet(HttpServletRequest request,
+      HttpServletResponse response)
+      throws ServletException, IOException {
+    response.setContentType("text/html");
+    PrintWriter out = response.getWriter();
+    out.println("Olá, mundo!");
+  }
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Vamos rodar nosso exemplo</h3>
+        </section>
+
+        <section>
+          <h3>127.0.0.1 - localhost</h3>
+
+          <img class="stretch" data-src="img/tapete_localhost.jpg">
+        </section>
+
+        <!--section>
+          <h3>Context root</h3>
+
+          <p class="fragment" data-fragment-index="1">O contexto raiz (<em>context root</em>) de uma aplicação web determina que URLs o servidor irá delegar para a aplicação.</p>
+
+          <p class="fragment" data-fragment-index="1">http://localhost:8080/<span class="destaque">context_root</span></p>
+        </section-->
+
+        <section>
+          <h3>Questão</h3>
+
+          <p class="fragment">Por que não usamos <span class="destaque">System.out.println("Olá, mundo!")</span> no lugar de <span class="destaque">response.getWriter().println("Olá, mundo!")</span> ?</p>
+        </section>
+
+        <section>
+          <h3>@WebServlet</h3>
+
+          <p class="fragment">A anotação <span class="destaque">@WebServlet</span> é usada para definir a URL que dará acesso ao Servlet.</p>
+
+          <pre class="fragment"><code class="java" data-trim>
+import javax.servlet.annotation.WebServlet;
+
+...
+
+@WebServlet("/ola-mundo")
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>web.xml</h3>
+
+          <p class="fragment">A versão 3.0 da API Servlet (especificação JSR 315, novembro de 2009) definiu a configuração via anotações, que anteriormente só era possível através do arquivo <span class="destaque">web.xml</span> (<em>deployment descriptor</em>).</p>
+        </section>
+
+        <section>
+          <h3>Mapeamento com web.xml</h3>
+
+          <p class="fragment">Vamos criar o arquivo <span class="destaque">web.xml</span> no diretório <span class="destaque">/src/main/webapp/WEB-INF/</span>.</p>
+
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;web-app xmlns="http://java.sun.com/xml/ns/javaee" version="3.0"&gt;
+  &lt;servlet&gt;
+    &lt;servlet-name&gt;OlaMundo&lt;/servlet-name&gt;
+    &lt;servlet-class&gt;br.gov.sefaz.ce.webbasico.OlaMundo&lt;/servlet-class&gt;
+  &lt;/servlet&gt;
+  &lt;servlet-mapping&gt;
+    &lt;servlet-name&gt;OlaMundo&lt;/servlet-name&gt;
+    &lt;url-pattern&gt;/ola-mundo&lt;/url-pattern&gt;
+  &lt;/servlet-mapping&gt;
+&lt;/web-app&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HttpServlet</h3>
+
+          <ul>
+            <li class="fragment">Classe abstrata <span class="destaque">javax.servlet.http.HttpServlet</span></li>
+            <li class="fragment">Para criar um servlet criamos um classe que herda de HttpServlet</li>
+            <li class="fragment">Servlets não possuem um método <span class="destaque">main</span>. Os <em>containers</em> Web gerenciam o ciclo de vida da instância do Servlet</li>
+          </ul>
+
+          <a class="fragment" href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServlet.html" target="_blank" style="word-wrap: break-word;">http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServlet.html</a>
+        </section>
+
+        <section>
+          <h3>Questão</h3>
+
+          <p class="fragment">Por que a classe HttpServlet é abstrata?</p>
+
+          <blockquote class="fragment">Por que não há lógica implementada nos métodos <span class="destaque">doGet</span> e <span class="destaque">doPost</span>. Devemos sobrescrever pelo menos um destes métodos.</blockquote>
+        </section>
+
+        <section>
+          <h3>Método doGet</h3>
+
+          <pre class="fragment"><code class="java" data-trim>
+protected void doGet(
+    HttpServletRequest request,
+    HttpServletResponse response)
+      throws ServletException, IOException {
+      ...
+}
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>HttpServletRequest</h3>
+
+          <p class="fragment">O propósito do objeto <span class="destaque">HttpServletRequest</span> é representar a requisição enviada pelo navegador. Dessa forma, qualquer coisa que o navegador enviar estará acessível via HttpServletRequest.</p>
+
+          <pre class="fragment"><code class="java" data-trim>
+import javax.servlet.http.HttpServletRequest;
+          </code></pre>
+
+          <a class="fragment" href="http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html" target="_blank" style="word-wrap: break-word;">http://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletRequest.html</a>
+        </section>
+
+        <section>
+          <h3>HttpServletResponse</h3>
+
+          <p class="fragment"><span class="destaque">HttpServletResponse</span> é usado para enviar a resposta de volta para o cliente (navegador).</p>
+
+          <pre class="fragment"><code class="java" data-trim>
+import javax.servlet.http.HttpServletResponse;
+
+...
+
+response.setContentType("text/html");
+PrintWriter out = response.getWriter();
+out.println("Olá, mundo!");
+          </code></pre>
+
+          <a class="fragment" href="https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html" style="word-wrap: break-word;">https://docs.oracle.com/javaee/6/api/javax/servlet/http/HttpServletResponse.html</a>
+        </section>
+
+        <section>
+          <h3>Parâmetros da requisição</h3>
+
+          <p class="fragment">Os parâmetros da requisição são enviados como parte da URL (method="get") ou como parte do corpo da requisição HTTP (method="post").</p>
+
+          <p class="fragment">Indepentende do modo como os parâmetros são enviados, a forma de obtenção de seus valores é a mesma:</p>
+
+          <pre class="fragment"><code class="java" data-trim>
+String parametro1 = request.getParameter("parametro1");
+String parametro2 = request.getParameter("parametro2");
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Exercício</h3>
+
+          <ul>
+            <li class="fragment">Crie um servlet que liste todos os nomes de parâmetros enviados e seus valores.</li>
+            <!--li class="fragment">Crie um servlet que liste todos os nomes de cabeçalhos HTTP da requisição e seus valores.</li-->
+          </ul>
+        </section>
+
+        <section>
+          <h3>Atributos no seu servlet</h3>
+
+          <p class="fragment">Os objetos request e response são criados a cada requisição, mas o servlet não (o objeto pode ser reusado).</p>
+
+          <p class="fragment">É boa prática evitar o uso de atributos compartilhados.</p>
+        </section>
+
+        <section>
+          <h2>JSP - JavaServer Pages</h2>
+
+          <ul class="fragment">
+            <li>HTML + Java = JSP</li>
+            <li>Extensão .jsp</li>
+            <li>O foco do JSP é na lógica da apresentação da aplicação</li>
+            <li>O JSP é convertido em um Servlet pelo Container Web</li>
+            <li>É mais conveniente escrever e modificar o código HTML do que com Servlets puros</li>
+            <li>O cliente (navegador) não recebe nada que seja JSP, o JSP é pre-processado e o resultado é HTML</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Editar pom.xml e incluir dependência</h3>
+
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;dependencies&gt;
+
+  ...
+
+  &lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+    &lt;artifactId&gt;javax.servlet.jsp-api&lt;/artifactId&gt;
+    &lt;version&gt;2.3.1&lt;/version&gt;
+    &lt;scope&gt;provided&lt;/scope&gt;
+  &lt;/dependency&gt;
+
+  ...
+
+&lt;/dependencies&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Vamos criar nosso primeiro JSP</h3>
+        </section>
+
+        <section>
+          <h3>Scriptlet</h3>
+
+          <ul>
+            <li class="fragment">Permite que se escreva código Java dentro de páginas JSP.</li>
+          </ul>
+
+          <pre class="fragment"><code class="html" data-trim>
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;Contando de 0 a 9&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Contando de 0 a 9&lt;/h1&gt;
+    &lt;p&gt;In&#237;cio.&lt;/p&gt;
+    
+    &lt;% for (int i = 0; i &lt; 10; i++) { %&gt;
+        &lt;p&gt;N&#250;mero &lt;%= i %&gt;.&lt;/p&gt;
+    &lt;% } %&gt;
+    
+    &lt;p&gt;Fim.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Diretivas JSP</h3>
+
+          <p class="fragment">A diretiva JSP permite dar informação sobre a página ao "motor" JSP.</p>
+
+          <pre class="fragment"><code class="html" data-trim>
+
+<!-- a diretiva page é usada para prover
+instruções ao container sobre a página JSP,
+neste exemplo foi usado o atributo import
+para importar as classes de um pacote -->
+&lt;%@ page import="java.util.*" %&gt;
+
+<!-- a diretiva include é usada para incluir
+um arquivo na página JSP -->
+&lt;%@ include file="rodape.jsp" %&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Tag libraries</h3>
+
+          <p class="fragment">Tag libraries são bibliotecas customizadas de tags que ajudam a eliminar a utilização de scriptlets e redundância de código em páginas JSP. Para utilizar uma taglib utilizamos a diretiva <span class="destaque">taglib</span>.</p>
+
+          <p class="fragment">JSTL (<em>JavaServer Pages Standard Tag Library</em>) é um conjunto de taglibs padrão do JSP.</p>
+
+          <p class="fragment">Entre as principais taglibs definidas pelo JSTL temos a <span class="destaque">core</span> (funções gerais como condições e laços) e a <span class="destaque">fmt</span> (tratamento e formatações de padrões de internacionalização).</p>
+
+          <pre class="fragment"><code class="html" data-trim>
+&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %&gt;
+&lt;%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%&gt;
+          </code></pre>
+        </section>
+
+        <section>
+          <h3>Editar pom.xml e incluir dependência</h3>
+          
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;dependencies&gt;
+
+  ...
+
+  &lt;dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+      &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+    &lt;version&gt;1.2&lt;/version&gt;
+  &lt;/dependency&gt;
+
+  ...
+
+&lt;/dependencies&gt;
+          </code></pre>
+        </section>
+
+        <!--section>
+          <h3>Expression language</h3>
+        </section-->
+
+        <section>
+          <h3>Filtros</h3>
+
+          <p class="fragment">Um filtro é uma classe Java que implementa a interface <span class="destaque">javax.servlet.Filter</span>. Filtros são comumente usados para autenticação e auditoria.</p>
+
+          <p class="fragment">Ao implementar a interface Filter, temos que implementar 3 métodos: init, destroy e doFilter.</p>
+
+          <a class="fragment" href="http://docs.oracle.com/javaee/6/api/javax/servlet/Filter.html" target="_blank" style="word-wrap: break-word;">http://docs.oracle.com/javaee/6/api/javax/servlet/Filter.html</a>
+        </section>
+
+        <section>
+          <h3>Implementando um filtro</h3>
+
+          <pre class="fragment"><code class="java" data-trim>
+@WebFilter("/*")
+public class MeuFiltro implements Filter {
+  public void doFilter(ServletRequest request,
+    ServletResponse response, FilterChain chain) {
+    // ...
+    chain.doFilter(request, response);
+    // ...
+  }
+}
+          </code></pre>
+
+          <p class="fragment">Qualquer código colocado antes da chamada <span class="destaque">chain.doFilter(request, response)</span> será executado antes de chegar no servlet, qualquer código depois será executado depois do servlet.</p>
+        </section>
+
+        <section>
+          <h3>Codificação UTF-8 em todos os servlets</h3>
+
+          <p class="fragment">Para defindir a codificação UTF-8 em todos os sevlets utilizamos um filtro implementado pelo Tomcat.</p>
+
+
+          <pre class="fragment"><code class="xml" data-trim>
+&lt;filter&gt;
+  &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+  &lt;filter-class&gt;org.apache.catalina.filters.SetCharacterEncodingFilter&lt;/filter-class&gt;
+  &lt;init-param&gt;
+    &lt;param-name&gt;encoding&lt;/param-name&gt;
+    &lt;param-value&gt;UTF-8&lt;/param-value&gt;
+  &lt;/init-param&gt;
+&lt;/filter&gt;
+&lt;filter-mapping&gt;
+  &lt;filter-name&gt;SetCharacterEncodingFilter&lt;/filter-name&gt;
+  &lt;url-pattern&gt;/*&lt;/url-pattern&gt;
+&lt;/filter-mapping&gt;
+          </code></pre>
+
+          <a class="fragment" href="http://wiki.apache.org/tomcat/FAQ/CharacterEncoding#Q3" target="_blank" style="word-wrap: break-word;">http://wiki.apache.org/tomcat/FAQ/CharacterEncoding#Q3</a>
+        </section>
+
+        <section>
+          <h3>Mantendo o estado</h3>
+
+          <p class="fragment">Em algumas situações desejamos manter o estado entre diferentes requisições. Um exemplo deste cenário é manter um usuário logado na aplicação. Para resolver este problema utilizamos sessões. Podemos obter uma sessão através do objeto HttpServletRequest usando o método <span class="destaque">getSession</span>.</p>
+
+          <pre class="fragment"><code class="java" data-trim>
+HttpSession sessao = request.getSession();  
+sessao.setAttribute("nome", valor); // escreve
+sessao.getAttribute("nome"); // lê
+          </code></pre>
+        </section>
+
+        <!--section>
+          <h2>Servlet - Mantendo o estado</h2>
+
+          <ul>
+            <li class="fragment">Cookies</li>
+            <li class="fragment">Campos escondidos em formulários (input hidden)</li>
+            <li class="fragment">Autenticação ao nível de sessão</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>ServletContext</h3>
+
+          ServletContext context = request ??? getServletContext();
+
+          O contexto é global para uma JVM ????
+
+          ServletContext x ServletConfig ???
+
+        </section-->
+
+      </section>
+
+      <section>
+        <section>
+          <h2>MVC</h2>
+
+          <ul>
+            <li>No MVC, o JSP faz o papel de visão e o Servlet faz o papel de controlador</li>
+            <li>
+              Separação do conteúdo da apresentação
+
+              <ul>
+                <li>Servlet: cuida das camadas de acesso aos dados e do fluxo navegacional</li>
+                <li>JSP: cuida da apresentação</li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>RequestDispatcher</h3>
+
+          <p class="fragment">
+            Para redirecionarmos a requisição ao Servlet para o JSP utilizamos o RequestDispatcher.
+          </p>
+
+          <pre class="fragment"><code class="java" data-trim>
+  request
+    .getRequestDispatcher("/WEB-INF/jsp/index.jsp")
+      .forward(request, response);
+          </code></pre>
+        </section>
+      </section>
+
+      <section>
+        <h3>Criando a tabela POSTAGEM</h3>
+
+        java -jar h2-1.4.188.jar
+
+        <pre class="fragment"><code class="sql" data-trim>
+CREATE TABLE POSTAGEM (
+  ID INT PRIMARY KEY,
+  TITULO VARCHAR NOT NULL,
+  TEXTO TEXT NOT NULL
+);
+
+CREATE SEQUENCE POSTAGEM_SEQ;
+
+INSERT INTO POSTAGEM (ID, TITULO, TEXTO) VALUES (POSTAGEM_SEQ.NEXTVAL, 'Meu título', 'Meu texto');
+        </code></pre>
+      </section>
+
+      <!--section>
+        <h3>Datasource JNDI</h3>
+      </section-->
+
+      <!--section>
+        <section>
+          <h2>Redirecionamento (Post-redirect-get)</h2>
+
+          <p>
+            Para resolver os problemas da tela de sucesso temos que utilizar redirecionamento. Ao invés de renderizar o resultado bem sucedido do POST, o servidor encaminha para outra página.
+          </p>
+        </section>
+
+        <section>
+          <h3>Vantagens do redirecionamento</h3>
+
+          <p class="fragment">Por que é elegante redirecionar depois da submissão de um formulário?</p>
+
+          <ul class="fragment">
+            <li class="fragment highlight-red">Porque POST não pode retornar HTML</li>
+            <li class="fragment highlight-green">Porque assim o recarregamento da página não reenvia o formulário</li>
+            <li class="fragment highlight-red">Para remover os parâmetros do formulário da URL</li>
+            <li class="fragment highlight-green">??? Para que tenhamos páginas distintas para formulários e páginas de sucesso</li>
+          </ul>
+        </section>
+      </section-->
+
+      <section>
+        <section>
+          <h2>Nunca confiar nos dados dos usuários</h2>
+
+          <ul>
+            <li>Todos os dados devem ser verificados</li>
+            <li>Limitar a quantidade de campos para permitir somente o que é necessário</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>SQL injection</h3>
+
+          <p>A injeção de SQL ocorre quando o atacante consegue inserir uma série de instruções SQL dentro de uma consulta através da manipulação das entradas de dados de uma aplicação.</p>
+        </section>
+
+        <section>
+          <h3>Tirinha</h3>
+
+          <img class="stretch" data-src="img/injecao_de_sql.png">
+        </section>
+
+        <section>
+          <h3>Vamos testar</h3>
+
+          <pre class="fragment"><code class="sql" data-trim>
+'); drop table POSTAGEM; --
+          </code></pre>
+        </section>
+      </section>
+
+        <section>
+          <h3>AJAX</h3>
+
+          <ul>
+            <li class="fragment">
+              <em>Asynchronous JavaScript and XML</em>
+              <ul>
+                <li class="fragment">JavaScript Assíncrono e XML</li>
+              </ul>
+            </li>
+            <li class="fragment">AJAX é uma técnica para criar páginas Web dinâmicas e rápidas</li>
+            <li class="fragment">O JavaScript utiliza o objeto <span class="destaque">XMLHttpRequest</span> para fazer requisições de uma URL sem precisar da atualização completa da página</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>XML vs JSON</h3>
+
+          <p class="fragment">Apesar do nome AJAX envolver XML, hoje em dia, é muito mais comum o uso de JSON (JavaScript Object Notation). JSON é mais utilizado que o XML devido às suas vantagens, como ser mais leve e possuir sintaxe familiar ao JavaScript.</p>
+        </section>
+
+        <section>
+          <h3>AJAX com jQuery</h3>
+
+          <pre class="fragment"><code class="javascript" data-trim>
+$.get('URL', function(dados) {
+    alert(dados);
+});
+          </code></pre>
+
+          <a class="fragment" href="http://api.jquery.com/jquery.ajax/" target="_blank" style="word-wrap: break-word;">http://api.jquery.com/jquery.ajax/</a>
+        </section>
+
+      <section>
+        <h2>Referências</h2>
+
+        <ul>
+          <li>https://developer.mozilla.org/pt-BR/docs/HTML/Introduction</li>
+          <li>http://en.wikipedia.org/wiki/HTTP_cookie</li>
+          <li>https://www.udacity.com/wiki/cs253/unit-1</li>
+          <li>https://www.codecademy.com/pt-BR/courses/web-beginner-pt-BR/2/1?curriculum_id=5355c39d516bcbd91200000a</li>
+          <li>https://www.udacity.com/wiki/cs253/unit-2#forms</li>
+          <li>https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/A_re-introduction_to_JavaScript</li>
+          <li>http://www.tiexpert.net/programacao/web/html/thead-tbody-tfoot.php</li>
+          <li>http://tutorials.jenkov.com/java-servlets/httprequest.html</li>
+          <li>https://pt.wikipedia.org/wiki/Inje%C3%A7%C3%A3o_de_SQL</li>
+          <li>https://en.wikipedia.org/wiki/First-class_function</li>
+          <li>https://docs.jboss.org/jbossas/guides/webguide/r2/en/html/ch06.html</li>
+          <li>http://pt.slideshare.net/DeivisWingert/programacao-funcional</li>
+          <li>https://pt.wikipedia.org/wiki/JavaScript</li>
+          <li>https://en.wikipedia.org/wiki/JQuery</li>
+        </ul>
+      </section>
+
+      <section>
+        <h1>Fim</h1>
+      </section>
+
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: false,
+        slideNumber: true,
+        history: true,
+        center: true,
+
+        transition: 'convex', // none/fade/slide/convex/concave/zoom
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          /*{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },*/
+          { src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/reveal.js-menu/menu.js' }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
